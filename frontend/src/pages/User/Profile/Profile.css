@@ -1,0 +1,79 @@
+@font-face {
+    font-family: nurburgring;
+    src: url('/src/assets/NotesStyleNbr-Brand.ttf');
+}
+
+@font-face {
+    font-family: automobile;
+    src: url('/src/assets/GranTorino-ALKDL.otf');
+}
+
+p {
+    margin: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+.Profile #nurb-logo {
+    object-fit: cover;
+    height: 8vh;
+}
+
+.Profile .brand1 {
+    font-family: nurburgring;
+    font-size: 3rem;
+    color: white;
+}
+
+.Profile .brand2 {
+    font-size: 3rem;
+    font-family: automobile;
+    color: white;
+}
+
+.Profile .user {
+    border: none;
+    width: 100%;
+}
+
+.Profile .pass {
+    grid-template-columns: 90% 1fr;
+    align-items: center;
+}
+
+.Profile #eye-button {
+    border: none;
+    background: transparent;
+}
+
+.Profile #eye-icon2 {
+    display: none;
+}
+
+.Profile #card {
+    background-color: rgba(255, 255, 255, 0.245);
+    backdrop-filter: blur(5px);
+    border: none;
+}
+
+.Profile .login-button {
+    background-color: black !important;
+    transition: 0.5s;
+}
+
+.Profile .login-button:hover {
+    background-color: rgba(255, 255, 255, 0.408) !important;
+    border-color: transparent !important;
+    backdrop-filter: blur(6px);
+    color: black !important;
+}
+
+.Profile .login-button:active {
+    border-color: rgb(0, 0, 0) !important;
+}
+
+.Profile input:disabled {
+    background-color: white;
+}

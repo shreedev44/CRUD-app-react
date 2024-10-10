@@ -1,0 +1,25 @@
+@font-face {
+    font-family: nurburgring;
+    src: url('/src/assets/NotesStyleNbr-Brand.ttf');
+}
+
+@font-face {
+    font-family: automobile;
+    src: url('/src/assets/GranTorino-ALKDL.otf');
+}
+
+@font-face {
+    font-family: username;
+    src: url('/src/assets/ethnocentric\ rg.otf');
+}
+
+
+.Home .wel {
+    font-size: 2rem;
+}
+
+
+.Home .user {
+    font-family: username;
+    color: blanchedalmond;
+}

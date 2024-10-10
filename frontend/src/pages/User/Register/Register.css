@@ -1,0 +1,49 @@
+p {
+    margin: 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+
+.Register .user {
+    border: none;
+    width: 100%;
+}
+
+.Register .pass {
+    grid-template-columns: 90% 1fr;
+    align-items: center;
+}
+
+.Register #eye-button {
+    border: none;
+    background: transparent;
+}
+
+.Register #eye-icon2 {
+    display: none;
+}
+
+.Register #card {
+    background-color: rgba(255, 255, 255, 0.245);
+    backdrop-filter: blur(5px);
+    border: none;
+}
+
+.Register .login-button {
+    background-color: black !important;
+    transition: 0.5s;
+}
+
+.Register .login-button:hover {
+    background-color: rgba(255, 255, 255, 0.408) !important;
+    border-color: transparent !important;
+    backdrop-filter: blur(6px);
+    color: black !important;
+}
+
+.Register .login-button:active {
+    border-color: rgb(0, 0, 0) !important;
+}
