@@ -16,7 +16,7 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err.message));
 
-app.use(cors())
+app.use(cors({credentials: true, origin: true}))
 app.use(morgan('dev'))
 app.use(express.json({limit: '10mb'}))
 app.use(express.urlencoded({extended: true}))

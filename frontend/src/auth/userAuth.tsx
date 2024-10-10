@@ -16,6 +16,7 @@ export async function refreshAccessToken () {
         try{
             const response = await fetch('http://localhost:3000/refresh-token', {
                 method: "GET",
+                credentials: "include",
                 headers: {
                     "Cookie": `refreshToken=${Cookies.get('refreshToken')}`
                 }
