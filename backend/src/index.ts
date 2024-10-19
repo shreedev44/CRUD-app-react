@@ -19,7 +19,7 @@ mongoose
 app.use(
   cors({
     credentials: true,
-    origin: true,
+    origin: "https://crud-app-front-end-lovat.vercel.app",
   })
 );
 app.use(morgan("dev"));
