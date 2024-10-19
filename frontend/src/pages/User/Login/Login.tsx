@@ -7,6 +7,7 @@ import { SetToken } from "../../../redux/Store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import background from "../../../assets/6.jpg"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    document.body.style.background = "url('/src/assets/6.jpg') no-repeat center fixed"
+    document.body.style.background = `url(${background}) no-repeat center fixed`
     document.body.style.backgroundSize = 'cover'
   }, [])
 
