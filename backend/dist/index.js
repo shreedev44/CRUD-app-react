@@ -18,11 +18,14 @@ mongoose_1.default
     .connect(process.env.MONGO_URL)
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log(err.message));
-app.use((0, cors_1.default)());
-app.use((0, morgan_1.default)('dev'));
-app.use(express_1.default.json({ limit: '10mb' }));
+app.use((0, cors_1.default)({
+    credentials: true,
+    origin: "https://crud-app-front-end-lovat.vercel.app",
+}));
+app.use((0, morgan_1.default)("dev"));
+app.use(express_1.default.json({ limit: "10mb" }));
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_parser_1.default)());
-app.use('/', userRouter_1.default);
-app.use('/admin', adminRouter_1.default);
-app.listen(3000, () => console.log('server running'));
+app.use("/", userRouter_1.default);
+app.use("/admin", adminRouter_1.default);
+app.listen(3000, () => console.log("server running"));
