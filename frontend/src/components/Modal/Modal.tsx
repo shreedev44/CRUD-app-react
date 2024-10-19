@@ -72,7 +72,7 @@ const ModalForm = (props: ModalProps) => {
     if (newAccessToken) {
       const body: UserBody = { name, email, imageURL };
       if (!props.editing) body.password = password;
-      const url = `http://localhost:3000/admin/${
+      const url = `https://crud-app-api-tau.vercel.app/admin/${
         props.editing ? "edit-user/" + props.user?._id : "add-user"
       }`;
       const response = await fetch(url, {

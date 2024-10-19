@@ -31,7 +31,7 @@ const UserContextProvider = ({ children }: { children: ReactNode }) => {
           secure: true,
         });
         try {
-          const response = await fetch("http://localhost:3000/fetch-user", {
+          const response = await fetch("https://crud-app-api-tau.vercel.app/fetch-user", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${newAccessToken}`,

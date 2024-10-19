@@ -14,7 +14,7 @@ const isTokenExpired = (token: string) => {
 export async function refreshAccessToken () {
     if(Cookies.get('refreshToken')) {
         try{
-            const response = await fetch('http://localhost:3000/refresh-token', {
+            const response = await fetch('https://crud-app-api-tau.vercel.app/refresh-token', {
                 method: "GET",
                 credentials: "include",
                 headers: {

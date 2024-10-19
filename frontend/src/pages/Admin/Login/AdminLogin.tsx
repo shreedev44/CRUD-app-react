@@ -62,7 +62,7 @@ const AdminLogin = () => {
       return toastError("Please enter a valid email");
     if (!minLengthRegex.test(password)) return toastError("Password must be min 8 Characters");
 
-    const response = await fetch("http://localhost:3000/admin/login", {
+    const response = await fetch("https://crud-app-api-tau.vercel.app/admin/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

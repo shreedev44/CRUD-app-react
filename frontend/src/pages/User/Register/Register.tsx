@@ -106,7 +106,7 @@ const Register = () => {
     if (password !== confPassword)
       return errorToast("Passwords does not match");
 
-    const response = await fetch("http://localhost:3000/signup", {
+    const response = await fetch("https://crud-app-api-tau.vercel.app/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

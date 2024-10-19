@@ -92,7 +92,7 @@ const Profile = () => {
       }
 
       accessToken = await UserAuth(accessToken);
-      const response = await fetch("http://localhost:3000/update-profile", {
+      const response = await fetch("https://crud-app-api-tau.vercel.app/update-profile", {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${accessToken}`,

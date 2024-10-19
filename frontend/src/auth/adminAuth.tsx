@@ -14,7 +14,7 @@ const isTokenExpired = (token: string) => {
 export async function refreshAccessToken () {
     if(Cookies.get('adminRefreshToken')) {
         try{
-            const response = await fetch('http://localhost:3000/admin/refresh-token', {
+            const response = await fetch('https://crud-app-api-tau.vercel.app/admin/refresh-token', {
                 method: "GET",
                 headers: {
                     "Cookie": `refreshToken=${Cookies.get('adminRefreshToken')}`

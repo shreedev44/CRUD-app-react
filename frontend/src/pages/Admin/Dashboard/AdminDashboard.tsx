@@ -48,7 +48,7 @@ const AdminDashboard = () => {
         Cookies.set("adminAccessToken", newAccessToken);
 
         const response = await fetch(
-          "http://localhost:3000/admin/fetch-users",
+          "https://crud-app-api-tau.vercel.app/admin/fetch-users",
           {
             method: "GET",
             headers: {

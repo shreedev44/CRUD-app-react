@@ -19,7 +19,7 @@ const UserCard = (props: CardProps) => {
     const handleDelete = async () => {
         const newAccessToken = await AdminAuth(accessToken)
         if(newAccessToken) {
-            const response = await fetch(`http://localhost:3000/admin/delete-user/${props._id}`, {
+            const response = await fetch(`https://crud-app-api-tau.vercel.app/admin/delete-user/${props._id}`, {
                 headers: {
                     "Authorization": `Bearer ${newAccessToken}`
                 },

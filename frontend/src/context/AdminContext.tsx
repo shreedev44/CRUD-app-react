@@ -31,7 +31,7 @@ const AdminContextProvider = ({ children }: { children: ReactNode }) => {
         });
 
         try {
-          const response = await fetch("http://localhost:3000/admin/fetch-admin", {
+          const response = await fetch("https://crud-app-api-tau.vercel.app/admin/fetch-admin", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${newAccessToken}`,
