@@ -3,6 +3,7 @@ import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import background from "../../../assets/6.jpg"
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -52,7 +53,7 @@ const Register = () => {
   };
 
   useEffect(() => {
-    document.body.style.background = "url('/src/assets/6.jpg') no-repeat center fixed"
+    document.body.style.background = `url(${background}) no-repeat center fixed`
     document.body.style.backgroundSize = 'cover'
   }, [])
 

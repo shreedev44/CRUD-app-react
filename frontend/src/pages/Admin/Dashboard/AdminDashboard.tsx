@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import ModalForm from "../../../components/Modal/Modal";
 import { UserBody } from "../../../types";
+import background from "../../../assets/10.jpg"
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState<object[] | null>([]);
@@ -38,7 +39,7 @@ const AdminDashboard = () => {
 
   useLayoutEffect(() => {
     document.body.style.background =
-      "url('/src/assets/10.jpg') no-repeat center fixed";
+      `url(${background}) no-repeat center fixed`;
     document.body.style.backgroundSize = "cover";
 
     const getUsers = async () => {

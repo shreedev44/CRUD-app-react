@@ -1,16 +1,16 @@
 @font-face {
     font-family: nurburgring;
-    src: url('/src/assets/NotesStyleNbr-Brand.ttf');
+    src: url('/frontend/public/NotesStyleNbr-Brand.ttf');
 }
 
 @font-face {
     font-family: automobile;
-    src: url('/src/assets/GranTorino-ALKDL.otf');
+    src: url('/frontend/public/GranTorino-ALKDL.otf');
 }
 
 @font-face {
     font-family: username;
-    src: url('/src/assets/ethnocentric\ rg.otf');
+    src: url('/frontend/public//ethnocentric\ rg.otf');
 }
 
 

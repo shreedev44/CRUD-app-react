@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { AdminContext } from "../../context/AdminContext";
 import { AdminAuth } from "../../auth/adminAuth";
 import { CardProps } from "../../types";
+import pic from "../../assets/unknown.jpg"
 
 const UserCard = (props: CardProps) => {
 
@@ -46,7 +47,7 @@ const UserCard = (props: CardProps) => {
             style={{ width: "70px", height: "70px" }}
             src={
               props.imageURL === "none"
-                ? "/src/assets/unknown.jpg"
+                ? pic
                 : props.imageURL
             }
             alt="image"

@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { UserContext } from "../../../context/UserContext";
 import './Home.css'
 import { useNavigate } from "react-router-dom";
+import background from "../../../assets/7.jpg"
+import pic from "../../../assets/unknown.jpg"
 
 const Home = () => {
   const userContext = useContext(UserContext);
@@ -12,7 +14,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.body.style.background = "url('/src/assets/7.jpg') no-repeat center fixed"
+    document.body.style.background = `url(${background}) no-repeat center fixed`
     document.body.style.backgroundSize = 'cover'
   }, [])
 
@@ -35,7 +37,7 @@ const Home = () => {
         </div>
       </div>
       <div className="container-fluid py-3 justify-content-center text-center brand-div w-75">
-        <img src={user?.imageURL === 'none' ? "/src/assets/unknown.jpg" : user?.imageURL} className="w-25 rounded border border-light border-3" alt="" />
+        <img src={user?.imageURL === 'none' ? pic : user?.imageURL} className="w-25 rounded border border-light border-3" alt="" />
       </div>
     </>
   );

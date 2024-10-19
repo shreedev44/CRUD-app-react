@@ -5,11 +5,12 @@ import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { SetAdminToken } from "../../../redux/Store";
 import { AdminContext } from "../../../context/AdminContext";
+import background from "../../../assets/10.jpg"
 
 const AdminLogin = () => {
   useEffect(() => {
     document.body.style.background =
-      "url('/src/assets/10.jpg') no-repeat center fixed";
+      `url(${background}) no-repeat center fixed`;
     document.body.style.backgroundSize = "cover";
   }, []);
 

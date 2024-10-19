@@ -6,11 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { UserAuth } from "../../../auth/userAuth";
 import { UserContext } from "../../../context/UserContext";
+import background from "../../../assets/7.jpg"
+import pic from "../../../assets/unknown.jpg"
 
 const Profile = () => {
   useEffect(() => {
     document.body.style.background =
-      "url('/src/assets/7.jpg') no-repeat center fixed";
+      `url(${background}) no-repeat center fixed`;
     document.body.style.backgroundSize = "cover";
   }, []);
 
@@ -144,7 +146,7 @@ const Profile = () => {
                       imageURL === "none" ? "opacity-75" : ""
                     }`}
                     src={
-                      imageURL === "none" ? "/src/assets/unknown.jpg" : imageURL
+                      imageURL === "none" ? pic : imageURL
                     }
                     alt="image"
                     onClick={handleImage}

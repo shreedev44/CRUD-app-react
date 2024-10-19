@@ -8,6 +8,7 @@ import { AdminContext } from "../../context/AdminContext";
 import { UserBody } from "../../types";
 import { ToastContainer } from "react-toastify";
 import { ModalProps } from "../../types";
+import pic from "../../assets/unknown.jpg"
 
 const ModalForm = (props: ModalProps) => {
   const handleClose = () => {
@@ -114,7 +115,7 @@ const ModalForm = (props: ModalProps) => {
                 <div className="d-flex justify-content-center">
                   <img
                     src={
-                      imageURL !== "none" ? imageURL : "/src/assets/unknown.jpg"
+                      imageURL !== "none" ? imageURL : pic
                     }
                     alt=""
                     className="img-fluid w-25"
