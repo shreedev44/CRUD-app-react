@@ -7,13 +7,14 @@ import { SetToken } from "../../../redux/Store";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import background from "../../../assets/6.jpg"
+import background from "../../../assets/6.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [inputType, setInputType] = useState("password");
   const [iconClass, setIconClass] = useState("bi bi-eye-slash");
+  const [isLoading, setLoading] = useState(false);
 
   const iconRef = useRef(null);
 
@@ -25,9 +26,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    document.body.style.background = `url(${background}) no-repeat center fixed`
-    document.body.style.backgroundSize = 'cover'
-  }, [])
+    document.body.style.background = `url(${background}) no-repeat center fixed`;
+    document.body.style.backgroundSize = "cover";
+  }, []);
 
   const dispatchFun = useDispatch();
   const userContext = useContext(UserContext);
@@ -93,6 +94,7 @@ const Login = () => {
       return;
     }
 
+    setLoading(true)
     const response = await fetch("https://crud-app-api-tau.vercel.app/login", {
       method: "POST",
       credentials: "include",
@@ -107,6 +109,7 @@ const Login = () => {
 
     const data = await response.json();
     if (response.ok) {
+      setLoading(false)
       const accessToken: string = data.jwtToken;
       Cookies.set("accessToken", accessToken, {
         path: "/",
@@ -186,15 +189,24 @@ const Login = () => {
                 <div className="text-center d-grid">
                   <button
                     type="submit"
-                    className="btn btn-lg btn-dark mt-4 mb-2 mx-5 py-2 rounded-pill login-button"
+                    className={"btn btn-lg btn-dark mt-4 mb-2 mx-5 py-2 rounded-pill login-button d-flex justify-content-center"}
+                    disabled={isLoading}
                   >
-                    Sign In
+                    {isLoading ? (
+                      <div className="loader">
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                      </div>
+                    ) : (
+                      "Sign In"
+                    )}
                   </button>
                 </div>
                 <div className="text-center">
                   <span>Don't have an account? </span>
                   <a
-                    style={{cursor: 'pointer'}}
+                    style={{ cursor: "pointer" }}
                     className="link-danger "
                     onClick={() => navigate("/signup")}
                   >
