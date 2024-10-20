@@ -18,7 +18,7 @@ mongoose
 app.use(
   cors({
     credentials: true,
-    origin: "https://react-crud-app-44.vercel.app/",
+    origin: "https://react-crud-app-44.vercel.app",
   })
 );
 app.use(express.json({ limit: "10mb" }));
