@@ -17,9 +17,26 @@ mongoose_1.default
     .connect(process.env.MONGO_URL)
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.log(err.message));
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: "https://react-crud-app-44.vercel.app",
+//   })
+// );
+const allowedOrigins = [
+    'https://react-crud-app-44.vercel.app',
+    'http://localhost:5173',
+];
 app.use((0, cors_1.default)({
+    origin: function (origin, callback) {
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
-    origin: "https://react-crud-app-44.vercel.app",
 }));
 app.use(express_1.default.json({ limit: "10mb" }));
 app.use(express_1.default.urlencoded({ extended: true }));
