@@ -19,11 +19,12 @@ mongoose_1.default
     .catch((err) => console.log(err.message));
 app.use((0, cors_1.default)({
     credentials: true,
-    origin: "https://crud-app-front-end-lovat.vercel.app",
+    origin: "https://react-crud-app-44.vercel.app/",
 }));
 app.use(express_1.default.json({ limit: "10mb" }));
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cookie_parser_1.default)());
 app.use("/", userRouter_1.default);
 app.use("/admin", adminRouter_1.default);
+app.use("*", userRouter_1.default);
 app.listen(3000, () => console.log("server running"));

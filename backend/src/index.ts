@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import morgan from "morgan";
 import dotenv from "dotenv";
 import userRouter from "./routers/userRouter";
 import adminRouter from "./routers/adminRouter";
@@ -19,7 +18,7 @@ mongoose
 app.use(
   cors({
     credentials: true,
-    origin: "https://crud-app-front-end-lovat.vercel.app",
+    origin: "https://react-crud-app-44.vercel.app/",
   })
 );
 app.use(express.json({ limit: "10mb" }));
@@ -28,5 +27,6 @@ app.use(cookieParser());
 
 app.use("/", userRouter);
 app.use("/admin", adminRouter);
+app.use("*", userRouter);
 
 app.listen(3000, () => console.log("server running"));
