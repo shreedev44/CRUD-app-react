@@ -15,13 +15,6 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err.message));
 
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: "https://react-crud-app-44.vercel.app",
-//   })
-// );
-
 const allowedOrigins = [
   'https://react-crud-app-44.vercel.app',
   'http://localhost:5173',
