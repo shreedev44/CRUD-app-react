@@ -123,6 +123,7 @@ const Login = () => {
         userContext?.setAuth(true);
       }
     } else {
+      setLoading(false)
       toast.error(data.message, {
         position: "bottom-right",
         autoClose: 2000,
@@ -158,7 +159,7 @@ const Login = () => {
                   />
                 </svg>
               </div>
-              <div className="h2 text-center mt-3 mb-4 text-light">Sign In</div>
+              <h2 className="text-center mt-3 mb-4 text-light">Sign In</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-control rounded-1 d-grid my-2">
                   <input

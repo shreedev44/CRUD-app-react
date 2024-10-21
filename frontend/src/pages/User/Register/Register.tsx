@@ -155,7 +155,7 @@ const Register = () => {
                   />
                 </svg>
               </div>
-              <div className="h2 text-center mb-4 text-light">Sign Up</div>
+              <h2 className="text-center mb-4 text-light">Sign Up</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-control rounded-1 d-grid mb-2">
                   <input

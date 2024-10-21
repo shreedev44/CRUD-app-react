@@ -8,6 +8,7 @@ import { UserAuth } from "../../../auth/userAuth";
 import { UserContext } from "../../../context/UserContext";
 import background from "../../../assets/7.jpg"
 import pic from "../../../assets/unknown.jpg"
+import Loader from "../../../components/Loader/Loader";
 
 const Profile = () => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const Profile = () => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [imageURL, setImageURL] = useState<string>('');
+  const [isLoading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     setName(user?.name)
@@ -93,6 +95,7 @@ const Profile = () => {
         return errorToast("Cannot update without changes");
       }
 
+      setLoading(true)
       accessToken = await UserAuth(accessToken);
       const response = await fetch("https://crud-app-api-tau.vercel.app/update-profile", {
         method: "PATCH",
@@ -106,12 +109,14 @@ const Profile = () => {
       const data = await response.json();
 
       if (response.ok) {
+        setLoading(false)
         toast.success(data.message, {
           position: "top-center",
           autoClose: 2000,
         });
         dispatchFun(UpdateUser({name, email, imageURL}))
       } else {
+        setLoading(false)
         return errorToast(data.message);
       }
     }
@@ -137,20 +142,28 @@ const Profile = () => {
           <div className="col-12 col-sm-8 col-md-8 col-lg-4 m-auto container-fluid pt-5 mt-5">
             <div id="card" className="card rounded-5 mt-5">
               <div className="card-body">
-                <div className="h2 text-center mb-4 text-light">
+                <h2 className="text-center mb-4 text-light">
                   {isEditing ? "Edit Profile" : "Profile"}
-                </div>
+                </h2>
                 <div className="d-flex justify-content-center">
-                  <img
-                    className={`img-fluid w-25 rounded ${
-                      imageURL === "none" ? "opacity-75" : ""
-                    }`}
-                    src={
-                      imageURL === "none" ? pic : imageURL
-                    }
-                    alt="image"
-                    onClick={handleImage}
-                  />
+                  {imageURL ? (
+                    <img
+                      className={`img-fluid w-25 rounded ${
+                        imageURL === "none" ? "opacity-75" : ""
+                      }`}
+                      src={
+                        imageURL === "none" ? pic : imageURL
+                      }
+                      alt="image"
+                      onClick={handleImage}
+                    />
+                  ) : (
+                    <div className="mt-5 pt-5">
+                      <div className="m-5 pt-5">
+                        <Loader />
+                      </div>
+                    </div>
+                  )}
                   <input
                     type="file"
                     ref={fileInputRef}
@@ -171,6 +184,7 @@ const Profile = () => {
                     <></>
                   )}
                 </div>
+                {name ? (
                 <form>
                   <div className="form-control rounded-1 d-grid my-2">
                     <input
@@ -215,10 +229,17 @@ const Profile = () => {
                   <div className="text-center d-grid">
                     <button
                       type="submit"
-                      className="btn btn-lg btn-dark mt-4 mb-2 mx-5 py-2 rounded-pill login-button"
+                      className={"btn btn-lg btn-dark mt-4 mb-2 mx-5 py-2 rounded-pill login-button d-flex justify-content-center"}
+                      disabled={isLoading}
                       onClick={handleEdit}
                     >
-                      {isEditing ? "Update" : "Edit Profile"}
+                      {isEditing && !isLoading ? "Update" : (isLoading ? (
+                        <div className="loader">
+                          <span className="bar"></span>
+                          <span className="bar"></span>
+                          <span className="bar"></span>
+                      </div>
+                      ) : "Edit Profile")}
                     </button>
                   </div>
                   <div className="text-center d-grid">
@@ -230,6 +251,7 @@ const Profile = () => {
                     ): <></>}
                   </div>
                 </form>
+                ) : (<></>)}
               </div>
             </div>
           </div>

@@ -114,9 +114,9 @@ const AdminLogin = () => {
                   />
                 </svg>
               </div>
-              <div className="h2 text-center mt-3 mb-4 text-light">
+              <h2 className="text-center mt-3 mb-4 text-light">
                 Admin Login
-              </div>
+              </h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-control rounded-1 d-grid my-2">
                   <input
